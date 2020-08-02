@@ -37,12 +37,13 @@ class OrderEntry
 end
 
 class BillingMachine 
-  attr_reader :total, :menu, :order, :item, :quantity, :price, :sale_qun, :sale_price, :items_price
+  attr_reader :total, :menu, :order, :amount_saved, :item, :quantity, :price, :sale_qun, :sale_price, :items_price
 
   def initialize(order)
     @total = 0
     @menu = Pricetable::MENU
     @order = order
+    @amount_saved = 0
     @item = nil,
     @quantity = nil,
     @price = nil,
@@ -57,7 +58,6 @@ class BillingMachine
 
   def checkout
     order.each{ |item, quantity| item_in_sale(item, quantity) }
-    puts "$#{total.round(2)}"
   end
 
   def item_in_sale(item,quantity)
@@ -79,6 +79,7 @@ class BillingMachine
 
   def discount_billing
     price_of_simliar_item_in_sale
+    cal_saved_amount
   end
 
   def normal_billing
@@ -99,13 +100,23 @@ class BillingMachine
     @total += items_price
   end
 
+  def cal_saved_amount
+    @amount_saved += ((sale_qun * price) - sale_price)
+  end
+
+
   # for testing total, saved amount and recipt table
   def show_total
     checkout
     total.round(2)
   end
 
+  def show_saved_amount
+    checkout
+    amount_saved.round(2)
+  end
+
 end
 
 
-OrderEntry.new(BillingMachine).enter_order
+# OrderEntry.new(BillingMachine).enter_order
