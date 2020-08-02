@@ -13,4 +13,17 @@ class BillingMachineTest < Minitest::Test
     assert_equal(expected,BillingMachine.new({"milk"=>3, "bread"=>4, "banana"=>1, "apple"=>1}).show_saved_amount)
   end
 
+  def test_recipt_table
+    expected = puts
+    " +--------+----------+-------+
+      | Item   | Quantity | Price |
+      +--------+----------+-------+
+      | milk   | 3        | 8.97  |
+      | bread  | 4        | 8.17  |
+      | banana | 1        | 0.99  |
+      | apple  | 1        | 0.89  |
+      +--------+----------+-------+"
+
+    assert_equal(expected,BillingMachine.new({"milk"=>3, "bread"=>4, "banana"=>1, "apple"=>1}).show_recipt_table)
+  end
 end
