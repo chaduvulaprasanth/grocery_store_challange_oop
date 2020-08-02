@@ -147,4 +147,4 @@ class BillingMachine
 end
 
 
-# OrderEntry.new(BillingMachine).enter_order
+OrderEntry.new(BillingMachine).enter_order
