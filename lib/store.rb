@@ -1,4 +1,4 @@
-module Pricetable
+module Store
   MENU =  [
     {"name" => "milk", "price" => 3.97, "sale_qun" => 2, "sale_price" => 5 },
     {"name" => "bread", "price" => 2.17, "sale_qun" => 3, "sale_price" => 6 },

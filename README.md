@@ -3,10 +3,10 @@
 - sudo gem install minitest -v 5.4.0
 - sudo gem install terminal-table
 
-follow below instructions to test the application
+follow below instructions to check the application
 
 ```
-$ ruby lib/price_calculator.rb
+$ ruby lib/cart.rb
 Please enter all the items purchased separated by a comma
 milk,milk, bread,banana,bread,bread,bread,milk,apple
 
@@ -24,8 +24,6 @@ You saved $3.45 today.
 
 ```
 
-To run tests with out entering the app, please comment out
+follow below instructions to run tests
 
-<!-- OrderEntry.new(BillingMachine).enter_order --> (line 150) at end of the app in lib/price_calculator.rb file
-
-without commenting out the above line also tests will work and they work on the data that passed through tests - check test/price_calculator_test.rb
+- \$ ruby test/price_calculator.rb

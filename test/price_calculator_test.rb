@@ -1,6 +1,6 @@
 require "minitest/autorun"
 require "minitest/pride"
-require_relative "../lib/price_calculator"
+require_relative "../lib/billing"
 
 class BillingMachineTest < Minitest::Test
   def test_billing_machine_receipt

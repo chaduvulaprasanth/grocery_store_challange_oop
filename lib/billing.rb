@@ -1,48 +1,12 @@
-require_relative "price_table"
+require_relative "store"
 require 'terminal-table/import'
-
-class OrderEntry
-  attr_reader :item_names, :order, :calculator
-
-  def initialize(calculator)
-    @order = Hash.new(0)
-    @item_names = Pricetable::ITEMNAMES
-    @calculator = calculator
-  end
-
-  def enter_order
-    puts "Please enter all the items purchased separated by a comma"
-    items = gets.chomp
-    receive_order(items)
-  end
-
-  def receive_order(items)
-    items = items.downcase.split(",")
-    items.each { |item| item.strip! }
-    check_order(items)
-  end
-
-  def check_order(items)
-    if items.empty? 
-      puts 'No items entered'
-      abort
-    else
-      sort_order(items)
-    end
-  end
-
-  def sort_order(items)
-    items.select{ |item| @order[item] += 1 if item_names.include?(item)}
-    calculator.checkout(order)
-  end
-end
 
 class BillingMachine 
   attr_reader :total, :menu, :order, :amount_saved, :reciept_table, :item, :quantity, :price, :sale_qun, :sale_price, :items_price
 
   def initialize(order)
     @total = 0
-    @menu = Pricetable::MENU
+    @menu = Store::MENU
     @order = order
     @amount_saved = 0
     @reciept_table = []
@@ -145,6 +109,3 @@ class BillingMachine
     puts" #{generate_reciept_table}"
   end
 end
-
-
-OrderEntry.new(BillingMachine).enter_order
