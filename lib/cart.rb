@@ -38,4 +38,3 @@ class Cart
 end
 
 
-# Cart.new(BillingMachine).enter_order
