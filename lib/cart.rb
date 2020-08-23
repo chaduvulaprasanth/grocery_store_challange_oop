@@ -39,4 +39,4 @@ class Cart
 end
 
 
-Cart.new(BillingMachine).enter_order
+# Cart.new(BillingMachine).enter_order
