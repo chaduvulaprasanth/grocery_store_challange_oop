@@ -3,11 +3,11 @@ require_relative "billing"
 
 
 class Cart
-  attr_reader :item_names, :order
+  attr_reader :order, :menu
 
   def initialize
     @order = Hash.new(0)
-    @item_names = STORE::ITEMNAMES
+    @menu = STORE::MENU
   end
 
   def enter_order
@@ -30,9 +30,15 @@ class Cart
   end
 
   def sort_order(items)
-    items.select{ |item| @order[item] += 1 if item_names.include?(item)}
+    items.select do |item| 
+      if menu.each do |menu_item|
+          @order[item] += 1 if menu_item["name"] == item
+        end
+      end
+    end
     return order
   end
+
 end
 
 

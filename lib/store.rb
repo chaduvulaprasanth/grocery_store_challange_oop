@@ -5,6 +5,4 @@ module STORE
     {"name" => "banana", "price" => 0.99, "sale_qun" => nil, "sale_price" => nil},
     {"name" => "apple", "price" => 0.89, "sale_qun" => nil, "sale_price" => nil}
   ]
-  
-  ITEMNAMES = ["milk","bread","banana","apple"]
 end
