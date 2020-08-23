@@ -13,15 +13,13 @@ class Cart
   def enter_order
     puts "Please enter all the items purchased separated by a comma"
     items = gets.chomp
-    receive_order(items)
-  end
-
-  def receive_order(items)
     items = items.downcase.split(",")
     items.each { |item| item.strip! }
     check_order(items)
   end
 
+  private
+  
   def check_order(items)
     if items.empty? 
       puts 'No items entered'
