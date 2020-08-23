@@ -6,7 +6,7 @@
 follow below instructions to check the application
 
 ```
-$ ruby lib/cart.rb
+$ ruby price_calculator.rb.rb
 Please enter all the items purchased separated by a comma
 milk,milk, bread,banana,bread,bread,bread,milk,apple
 
