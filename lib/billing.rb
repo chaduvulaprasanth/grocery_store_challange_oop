@@ -24,7 +24,6 @@ class BillingMachine
 
   def checkout
     order.each{ |item, quantity| item_in_sale(item, quantity) }
-    reciept
   end
 
   def item_in_sale(item,quantity)
