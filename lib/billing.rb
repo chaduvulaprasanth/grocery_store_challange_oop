@@ -22,13 +22,6 @@ class BillingMachine
     order.each{ |item, quantity| item_in_sale(item, quantity) }
   end
 
-  def generate_reciept_table
-    items_table = table { |t|
-      t.headings = "Item", "Quantity", "Price"
-      reciept_table.each { |row| t << row }
-    }
-  end
-
   def reciept
     puts" #{generate_reciept_table} \n 
     Total price : $#{total.round(2)} \n 
@@ -90,4 +83,10 @@ class BillingMachine
     @reciept_table << [item, quantity, items_price]
   end
 
+  def generate_reciept_table
+    items_table = table { |t|
+      t.headings = "Item", "Quantity", "Price"
+      reciept_table.each { |row| t << row }
+    }
+  end
 end

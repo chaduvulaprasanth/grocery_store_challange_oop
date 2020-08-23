@@ -33,18 +33,4 @@ class BillingMachineTest < Minitest::Test
     assert_equal(expected, @bill.amount_saved.round(2))
   end
 
-  def test_recipt_table
-    expected = puts
-    " +--------+----------+-------+
-      | Item   | Quantity | Price |
-      +--------+----------+-------+
-      | milk   | 3        | 8.97  |
-      | bread  | 4        | 8.17  |
-      | banana | 1        | 0.99  |
-      | apple  | 1        | 0.89  |
-      +--------+----------+-------+"
-    
-    generate_reciept_table = puts" #{@bill.generate_reciept_table}"
-    assert_equal(expected, generate_reciept_table)
-  end
 end
