@@ -6,8 +6,9 @@ class BillingMachineTest < Minitest::Test
 
   def setup
     @bill  = BillingMachine.new({"milk"=>3, "bread"=>4, "banana"=>1, "apple"=>1})
-    @bill.checkout
+    puts @bill.checkout
   end
+
   def test_billing_machine_receipt
     expected = puts 
       " +--------+----------+-------+

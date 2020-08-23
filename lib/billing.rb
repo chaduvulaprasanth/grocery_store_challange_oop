@@ -18,13 +18,24 @@ class BillingMachine
     @items_price = nil
   end
 
-  def self.checkout(order)
-    new(order).checkout
-  end
-
   def checkout
     order.each{ |item, quantity| item_in_sale(item, quantity) }
   end
+
+  def generate_reciept_table
+    items_table = table { |t|
+      t.headings = "Item", "Quantity", "Price"
+      reciept_table.each { |row| t << row }
+    }
+  end
+
+  def reciept
+    puts" #{generate_reciept_table} \n 
+    Total price : $#{total.round(2)} \n 
+    You saved $#{amount_saved.round(2)} today"
+  end
+
+  private
 
   def item_in_sale(item,quantity)
     menu.each do |menu_item| 
@@ -79,32 +90,4 @@ class BillingMachine
     @reciept_table << [item, quantity, items_price]
   end
 
-  def generate_reciept_table
-    items_table = table { |t|
-      t.headings = "Item", "Quantity", "Price"
-      reciept_table.each { |row| t << row }
-    }
-  end
-
-  def reciept
-    puts" #{generate_reciept_table} \n 
-    Total price : $#{total.round(2)} \n 
-    You saved $#{amount_saved.round(2)} today"
-  end
-
-  # for testing total, saved amount and recipt table
-  def show_total
-    checkout
-    total.round(2)
-  end
-
-  def show_saved_amount
-    checkout
-    amount_saved.round(2)
-  end
-
-  def show_recipt_table
-    checkout
-    puts" #{generate_reciept_table}"
-  end
 end
