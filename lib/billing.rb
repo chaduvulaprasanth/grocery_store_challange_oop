@@ -6,7 +6,7 @@ class BillingMachine
 
   def initialize(order)
     @total = 0
-    @menu = Store::MENU
+    @menu = STORE::MENU
     @order = order
     @amount_saved = 0
     @reciept_table = []

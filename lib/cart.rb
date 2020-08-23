@@ -7,7 +7,7 @@ class Cart
 
   def initialize
     @order = Hash.new(0)
-    @item_names = Store::ITEMNAMES
+    @item_names = STORE::ITEMNAMES
   end
 
   def enter_order
@@ -19,7 +19,7 @@ class Cart
   end
 
   private
-  
+
   def check_order(items)
     if items.empty? 
       puts 'No items entered'
